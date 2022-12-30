@@ -2,9 +2,10 @@ load("@pybind11_bazel//:build_defs.bzl", "pybind_extension")
 
 pybind_extension(
     name = "zetasql",
-    srcs = ["py_zetasql.cc"],
+    srcs = ["bindings/zetasql.cpp"],
     deps = [
         "@com_google_zetasql//zetasql/public:evaluator",
+        "@com_google_zetasql//zetasql/public:simple_catalog",
     ]
 )
 

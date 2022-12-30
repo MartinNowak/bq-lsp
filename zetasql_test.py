@@ -1,7 +1,8 @@
-from zetasql import add, SimpleTable, types, ProductMode, Type
+from zetasql.zetasql import types, SimpleCatalog, ProductMode, SimpleTable
 from google.cloud import bigquery as bq
 
-print(add(1, 2))
+bqc = bq.Client()
+t = bqc.get_table('data.product_attributes')
 
 type_map = {
     ty().TypeName(ProductMode.PRODUCT_EXTERNAL): ty()
@@ -12,7 +13,4 @@ type_map = {
 type_map['INTEGER'] = types.Int64Type()
 type_map['BOOLEAN'] = types.BoolType()
 
-bqc = bq.Client()
-t = bqc.get_table('data.product_attributes')
-
-print(SimpleTable('product_attributes', [(col.name, type_map[col.field_type]) for col in t.schema]).GetTableTypeName(ProductMode.PRODUCT_EXTERNAL))
+print(SimpleTable(t.table_id, [(col.name, type_map[col.field_type]) for col in t.schema]).GetTableTypeName(ProductMode.PRODUCT_EXTERNAL))
