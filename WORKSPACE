@@ -20,35 +20,6 @@ workspace(name = "bq-lsp")
 
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
-# Rules ForeignCc CMake
-# TODO: build binder with cmake
-# http_archive(
-#    name = "rules_foreign_cc",
-#    sha256 = "c2cdcf55ffaf49366725639e45dedd449b8c3fe22b54e31625eb80ce3a240f1e",
-#    strip_prefix = "rules_foreign_cc-0.1.0",
-#    url = "https://github.com/bazelbuild/rules_foreign_cc/archive/0.1.0.zip",
-# )
-#
-# load("@rules_foreign_cc//foreign_cc:repositories.bzl", "rules_foreign_cc_dependencies")
-
-# # This sets up some common toolchains for building targets. For more details, please see
-# # https://github.com/bazelbuild/rules_foreign_cc/tree/main/docs#rules_foreign_cc_dependencies
-# rules_foreign_cc_dependencies()
-
-# Hedron's Compile Commands Extractor for Bazel
-# https://github.com/hedronvision/bazel-compile-commands-extractor
-http_archive(
-    name = "hedron_compile_commands",
-
-    # Replace the commit hash in both places (below) with the latest, rather than using the stale one here.
-    # Even better, set up Renovate and let it do the work for you (see "Suggestion: Updates" in the README).
-    url = "https://github.com/hedronvision/bazel-compile-commands-extractor/archive/0197fc673a1a6035078ac7790318659d7442e27e.tar.gz",
-    strip_prefix = "bazel-compile-commands-extractor-0197fc673a1a6035078ac7790318659d7442e27e",
-    sha256 = "632cf245a06f38a02eefe9764ae5ca581b74bfa106a44067665fcd99fb6babb0",
-)
-load("@hedron_compile_commands//:workspace_setup.bzl", "hedron_compile_commands_setup")
-hedron_compile_commands_setup()
-
 # ZetaSQL
 http_archive(
     name = "com_google_zetasql",
