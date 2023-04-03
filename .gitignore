@@ -1,5 +1,5 @@
-# Created by https://www.toptal.com/developers/gitignore/api/bazel,python
-# Edit at https://www.toptal.com/developers/gitignore?templates=bazel,python
+# Created by https://www.toptal.com/developers/gitignore/api/bazel,python,c++
+# Edit at https://www.toptal.com/developers/gitignore?templates=bazel,python,c++
 
 ### Bazel ###
 # gitignore template for Bazel build system
@@ -16,6 +16,40 @@
 /.aswb/
 /.clwb/
 
+### C++ ###
+# Prerequisites
+*.d
+
+# Compiled Object files
+*.slo
+*.lo
+*.o
+*.obj
+
+# Precompiled Headers
+*.gch
+*.pch
+
+# Compiled Dynamic libraries
+*.so
+*.dylib
+*.dll
+
+# Fortran module files
+*.mod
+*.smod
+
+# Compiled Static libraries
+*.lai
+*.la
+*.a
+*.lib
+
+# Executables
+*.exe
+*.out
+*.app
+
 ### Python ###
 # Byte-compiled / optimized / DLL files
 __pycache__/
@@ -23,7 +57,6 @@ __pycache__/
 *$py.class
 
 # C extensions
-*.so
 
 # Distribution / packaging
 .Python
@@ -182,5 +215,10 @@ cython_debug/
 # Poetry local configuration file - https://python-poetry.org/docs/configuration/#local-configuration
 poetry.toml
 
+# ruff
+.ruff_cache/
 
-# End of https://www.toptal.com/developers/gitignore/api/bazel,python
+# LSP config files
+pyrightconfig.json
+
+# End of https://www.toptal.com/developers/gitignore/api/bazel,python,c++
